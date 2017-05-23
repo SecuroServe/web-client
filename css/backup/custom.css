@@ -1,0 +1,32 @@
+body {
+  padding-top: 51px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+.table .pointer
+{
+    cursor: pointer; cursor: hand;
+}
+
+.jumbotron-static-height
+{
+	min-height: 400px;
+    box-shadow: 1px 1px 7px #888888;
+}
+
+@media only screen and (min-height: 900px){	
+	.jumbotron-static-height
+	{
+		min-height: 700px;
+		box-shadow: 1px 1px 7px #888888;
+	}
+}
+
+.calamity-map {
+	min-height: 450px;
+    box-shadow: 1px 1px 7px #888888;
+}

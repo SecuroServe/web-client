@@ -1,0 +1,49 @@
+body {
+  padding-top: 60px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 20px;
+  }
+}
+
+.table .pointer
+{
+    cursor: pointer; cursor: hand;
+}
+
+.jumbotron-static-height
+{
+	min-height: 350px;
+  -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media only screen and (min-height: 900px){	
+	.jumbotron-static-height
+	{
+		min-height: 600px;
+  -webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+	}
+}
+
+.calamity-map {
+	min-height: 600px;
+	-webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width: 979px) {
+.extra-info {
+	min-height: 200px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.extra-info {
+    margin-top: -4%;
+	position: relative;
+    text-align: justify;
+    text-justify: inter-word;
+}
