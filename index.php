@@ -113,7 +113,9 @@
 		
 		for(i = 0; i < response.returnObject.length; i++) {
 			var obj = response.returnObject[i];
-			document.getElementById("calamityData").innerHTML += "<tr class='pointer' data-href='/calamity?id="+ obj.id + "'><td> " + obj.title + "</td> <td>" + obj.message + "</td></tr>";
+			if(obj.confirmed == true) {
+				document.getElementById("calamityData").innerHTML += "<tr class='pointer' data-href='/calamity?id="+ obj.id + "'><td> " + obj.title + "</td> <td>" + obj.message + "</td></tr>";
+			}
 		}
 		
 	</script>
@@ -129,38 +131,40 @@
 		var infowindow = new google.maps.InfoWindow({maxWidth: 200});    
 
 		for (i = 0; i < response.returnObject.length; i++) {  
-          var loc = {lat: response.returnObject[i].location.latitude, lng: response.returnObject[i].location.longitude};
-		  var marker = new google.maps.Marker({
-			position: new google.maps.LatLng(response.returnObject[i].location.latitude, response.returnObject[i].location.longitude),
-			map: map
-		  });
-		  
-		  var circle = new google.maps.Circle({
-			map: map,
-			radius: response.returnObject[i].location.radius,
-			position: loc,
-			center: loc,
-			fillColor: 'red',
-			strokeColor: 'white',
-			strokeWeight: .5,
-			strokeOpacity: 0
-		  });
-		  
-		  //extend the bounds to include each marker's position
-		  bounds.extend(marker.position);
+		  if(response.returnObject[i].confirmed){
+			  var loc = {lat: response.returnObject[i].location.latitude, lng: response.returnObject[i].location.longitude};
+			  var marker = new google.maps.Marker({
+				position: new google.maps.LatLng(response.returnObject[i].location.latitude, response.returnObject[i].location.longitude),
+				map: map
+			  });
+			  
+			  var circle = new google.maps.Circle({
+				map: map,
+				radius: response.returnObject[i].location.radius,
+				position: loc,
+				center: loc,
+				fillColor: 'red',
+				strokeColor: 'white',
+				strokeWeight: .5,
+				strokeOpacity: 0
+			  });
+			  
+			  //extend the bounds to include each marker's position
+			  bounds.extend(marker.position);
 
-		  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-			return function() {
-			  infowindow.setContent("<h4>" + response.returnObject[i].title + "</h4><p>" + response.returnObject[i].message + "</p><center><a href='/calamity?id="+ response.returnObject[i].id + "' class='btn'>Meer informatie</a></center>");
-			  infowindow.open(map, marker);
-			}
-		  })(marker, i));
-		  
-		  google.maps.event.addListener(marker, 'dblclick', (function(marker, i) {
-			return function() {
-			  window.location.href = "/calamity?id="+ response.returnObject[i].id;
-			}
-		  })(marker, i));
+			  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+				  infowindow.setContent("<h4>" + response.returnObject[i].title + "</h4><p>" + response.returnObject[i].message + "</p><center><a href='/calamity?id="+ response.returnObject[i].id + "' class='btn'>Meer informatie</a></center>");
+				  infowindow.open(map, marker);
+				}
+			  })(marker, i));
+			  
+			  google.maps.event.addListener(marker, 'dblclick', (function(marker, i) {
+				return function() {
+				  window.location.href = "/calamity?id="+ response.returnObject[i].id;
+				}
+			  })(marker, i));
+		  }
 		}
 
 		//now fit the map to the newly inclusive bounds
