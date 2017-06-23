@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Glyphicons Halflings';
+
+    src: url('../fonts/glyphicons-halflings-regular.eot');
+    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
 body {
   padding-top: 60px;
 }
@@ -34,16 +41,38 @@ body {
           box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
+.alert-map {
+	min-height: 400px;
+	-webkit-box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 0px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.description{
+	min-height:150px;
+}
+
+@media (min-width: 979px) {
+.login {
+	min-height: 200px;
+}
+
+@media (min-width: 979px) {
+.search {
+	margin-top: 10px;
+}
+
 @media (min-width: 979px) {
 .extra-info {
 	min-height: 200px;
-    text-align: justify;
-    text-justify: inter-word;
 }
 
 .extra-info {
     margin-top: -4%;
 	position: relative;
+}
+
+.justify {
+
     text-align: justify;
     text-justify: inter-word;
 }

@@ -1,5 +1,11 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
 RewriteCond %{HTTP_HOST} !^www\. [NC]
 RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteRule ^calamity/(.*)$ /calamity.php?id=$1 [L]
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
