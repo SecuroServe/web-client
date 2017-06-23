@@ -80,14 +80,14 @@
 
 			  google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-				  infowindow.setContent("<h4>" + response.returnObject[i].title + "</h4><p>" + response.returnObject[i].message + "</p><center><a href='/calamity?id="+ response.returnObject[i].id + "' class='btn'>Meer informatie</a></center>");
+				  infowindow.setContent("<h4>" + response.returnObject[i].title + "</h4><p>" + response.returnObject[i].message + "</p><center><a href='/calamity/"+ response.returnObject[i].id + "' class='btn'>Meer informatie</a></center>");
 				  infowindow.open(map, marker);
 				}
 			  })(marker, i));
 			  
 			  google.maps.event.addListener(marker, 'dblclick', (function(marker, i) {
 				return function() {
-				  window.location.href = "/calamity?id="+ response.returnObject[i].id;
+				  window.location.href = "/calamity/"+ response.returnObject[i].id;
 				}
 			  })(marker, i));
 		  }
